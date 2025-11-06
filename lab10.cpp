@@ -149,17 +149,17 @@ string subtractDecimals(string num1, string num2) {
     // If fractional part of num1 < num2, borrow 1 from integer
     if (frac1 < frac2) {
         int1 = subtractStrings(int1,"1");
-        frac1 = addStrings(frac1, string(frac1.length(),'0') + "10"); // simple borrow
+        frac1 = addStrings(frac1, string(frac1.length(),'0') + "10"); // borrows 
     }
 
-    string fracDiff = subtractStrings(frac1, frac2);
-    string intDiff = subtractStrings(int1, int2);
+    string fracDiff = subtractStrings(frac1, frac2); //subtracts fractions 
+    string intDiff = subtractStrings(int1, int2); //subtracts integers 
 
-    fracDiff = removeTrailingZeros(fracDiff);
-    intDiff = removeLeadingZeros(intDiff);
+    fracDiff = removeTrailingZeros(fracDiff); //removes zeros 
+    intDiff = removeLeadingZeros(intDiff); //removes zeros 
 
-    if (fracDiff.empty()) return intDiff;
-    return intDiff + "." + fracDiff;
+    if (fracDiff.empty()) return intDiff; //returns integer if there are no fractions 
+    return intDiff + "." + fracDiff; //returns final number 
 }
 
 // Main function
@@ -176,8 +176,8 @@ int main() {
 
     string num1, num2;
     while (file >> num1 >> num2) { // read two numbers per line
-        if (!ValidDouble(num1) || !ValidDouble(num2)) {
-            cout << "Invalid number: " << num1 << " " << num2 << endl;
+        if (!ValidDouble(num1) || !ValidDouble(num2)) { //checks to make sure both numbers are valid 
+            cout << "Invalid number: " << num1 << " " << num2 << endl; //if not, prints the line that is not 
             continue;
         }
 
